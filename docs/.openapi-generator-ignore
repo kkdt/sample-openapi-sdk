@@ -1,0 +1,22 @@
+# This should match build.sh located anywhere.
+build.sh
+
+# Matches build.sh in the root
+/build.sh
+
+# Exclude all recursively
+docs/**
+
+.github/
+api/
+gradle/
+.gitignore
+.travis.yml
+build.gradle
+build.sbt
+git_push.sh
+gradle*
+pom.xml
+README.md
+settings.gradle
+**/*/AndroidManifest.xml

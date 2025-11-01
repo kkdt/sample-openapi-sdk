@@ -1,0 +1,25 @@
+openapi: 3.0.0
+info:
+  title: Common Header
+  version: 1.0.0
+# no paths defined - models only
+paths: {}
+components:
+  schemas:
+    Header:
+      type: object
+      properties:
+        ts:
+          type: string
+          format: date-time
+          description: An example is "2025-10-31T10:20:50.52Z"
+        classification:
+          type: string
+          default: "UNCLASSIFIED"
+          description: Classification string
+      # only allow additional string properties
+      additionalProperties:
+        type: string
+      required:
+        - ts
+        - classification
