@@ -9,7 +9,6 @@ repositories {
 
 // https://openapi-generator.tech/docs/generators/java/
 task generateHeaderJava(type: org.openapitools.generator.gradle.plugin.tasks.GenerateTask) {
-    // java, spring, typescript-angular, typescript-fetch, typescript-axios
     generatorName = "java"
     validateSpec = true
     inputSpec = "$rootDir/openapi/components/schemas/common-header.yml"
@@ -41,29 +40,26 @@ task generateHeaderJava(type: org.openapitools.generator.gradle.plugin.tasks.Gen
 }
 
 task generateHeaderTs(type: org.openapitools.generator.gradle.plugin.tasks.GenerateTask) {
-    // java, spring, typescript-angular, typescript-fetch, typescript-axios
-    generatorName = "typescript-axios"
+    generatorName = "typescript-node"
     validateSpec = true
     inputSpec = "$rootDir/openapi/components/schemas/common-header.yml"
     outputDir = "$rootDir/projects/common-header-ts"
-//    generateApiTests = false
-//    generateApiDocumentation = false
-//    generateModelTests = false
-//    generateModelDocumentation = false
-//    globalProperties.set([
-//        modelDocs: "false",
-//        models: "",
-//        apis: ""
-//    ])
+    generateApiTests = false
+    generateApiDocumentation = false
+    generateModelTests = false
+    generateModelDocumentation = false
+
+    globalProperties.set([
+        supportingFiles: "",
+        modelDocs: "",
+        models: "",
+        apis: ""
+    ])
 
     // Optional: Configure various options specific to the chosen generator
-    configOptions = [
-//        ngVersion       : "15.0.0", // Example for typescript-angular
-//        npmName         : "my-api-client",
-//        npmVersion      : "1.0.0",
-//        supportsES6     : "true",
-        withInterfaces  : "true"
-    ]
+//    configOptions = ([
+//
+//    ])
 
     // Optional: System properties can be used to pass additional arguments to the generator
 //    systemProperties = [
@@ -74,5 +70,6 @@ task generateHeaderTs(type: org.openapitools.generator.gradle.plugin.tasks.Gener
 build.dependsOn(generateHeaderTs)
 
 clean.doFirst {
-    delete("projects/common-header-ts")
+    delete("projects/common-header-ts/model")
+    delete("projects/common-header-ts/.openapi-generator")
 }
