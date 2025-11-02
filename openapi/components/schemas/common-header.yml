@@ -9,7 +9,7 @@ components:
     Header:
       type: object
       properties:
-        ts:
+        timestamp:
           type: string
           format: date-time
           description: An example is "2025-10-31T10:20:50.52Z"
