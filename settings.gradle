@@ -2,3 +2,6 @@ rootProject.name = 'sdk-common'
 
 include(":common-header-java")
 project(":common-header-java").projectDir = file("$rootDir/projects/common-header-java")
+
+include(":header-processor")
+project(":header-processor").projectDir = file("$rootDir/projects/header-processor")
